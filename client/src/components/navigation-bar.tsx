@@ -62,7 +62,16 @@ export default function NavigationBar({ activePath }: NavigationBarProps) {
         className={`p-2 ${activePath === "/profile" ? "text-primary" : "text-gray-400 hover:text-primary"}`}
         onClick={() => setLocation("/profile")}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+          <circle cx="12" cy="12" r="8"/>
+          <path d="M8 9c.8-.7 1.5-1 2.5-1s1.7.3 2.5 1"/>
+          <path d="m13 14 2 2"/>
+          <path d="m11 14-2 2"/>
+          <path d="M15 13h.01"/>
+          <path d="M9 13h.01"/>
+          <path d="M9 7 8 6"/>
+          <path d="m15 7 1-1"/>
+        </svg>
       </button>
     </div>
   );

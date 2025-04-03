@@ -102,7 +102,13 @@ export default function ProfileCard({ animal, isActive, onSwipeLeft, onSwipeRigh
             <span>{animal.species}</span>
           </p>
           
-          <div className="mt-auto">
+          <div className="bg-gray-50 p-3 rounded-md mb-3">
+            <p className="text-sm text-gray-700 leading-relaxed">
+              {animal.bio || `I'm a ${animal.species} looking for friends!`}
+            </p>
+          </div>
+          
+          <div>
             <p className="text-sm font-medium text-dark mb-1">Interested in:</p>
             <div className="flex flex-wrap gap-1">
               {animal.speciesPreferences.map((species, index) => (

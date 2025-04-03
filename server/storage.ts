@@ -50,61 +50,81 @@ export class MemStorage implements IStorage {
         username: "fluffy",
         password: "password",
         name: "Fluffy",
-        species: "Persian Cat",
+        species: "Cat",
         age: 2,
-        bio: "I'm a playful Persian cat who loves naps in the sun and chasing toys.",
+        bio: "I'm a playful Persian cat who loves naps in the sun and chasing toys. I enjoy watching birds from the window and getting treats!",
         avatar: "https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-        speciesPreferences: ["Persian Cat", "Siamese", "Maine Coon", "British Shorthair"]
+        speciesPreferences: ["Cat", "Dog", "Bird", "Rabbit"]
       },
       {
         username: "max",
         password: "password",
         name: "Max",
-        species: "Golden Retriever",
+        species: "Dog",
         age: 3,
-        bio: "Energetic Golden Retriever who loves playing fetch and swimming.",
+        bio: "Energetic Golden Retriever who loves playing fetch and swimming. I'm always happy to meet new friends at the park!",
         avatar: "https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-        speciesPreferences: ["Labrador", "Golden Retriever", "Poodle"]
+        speciesPreferences: ["Dog", "Cat", "Horse"]
       },
       {
         username: "oliver",
         password: "password",
         name: "Oliver",
-        species: "Siamese Cat",
+        species: "Cat",
         age: 1,
-        bio: "Curious Siamese who loves exploring and playing with strings.",
+        bio: "Curious cat who loves exploring and playing with strings. I can spend hours watching fish in the tank or chasing laser pointers.",
         avatar: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-        speciesPreferences: ["Persian Cat", "Siamese", "Maine Coon"]
+        speciesPreferences: ["Cat", "Bird", "Hamster"]
       },
       {
         username: "bailey",
         password: "password",
         name: "Bailey",
-        species: "Labrador",
+        species: "Dog",
         age: 4,
-        bio: "Friendly Labrador who enjoys long walks and cuddles.",
+        bio: "Friendly and sociable dog who enjoys long walks and cuddles. I'm very loyal and love to protect my family from the mail carrier.",
         avatar: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-        speciesPreferences: ["Labrador", "Golden Retriever", "German Shepherd"]
+        speciesPreferences: ["Dog", "Horse", "Sheep"]
       },
       {
         username: "charlie",
         password: "password",
         name: "Charlie",
-        species: "Beagle",
+        species: "Dog",
         age: 2,
-        bio: "Playful Beagle with a great nose for adventures.",
+        bio: "Playful dog with a great nose for adventures. I can sniff out treats from a mile away and love going on hikes with my human.",
         avatar: "https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-        speciesPreferences: ["Beagle", "Dachshund", "Poodle"]
+        speciesPreferences: ["Dog", "Cat", "Rabbit", "Mouse"]
       },
       {
         username: "luna",
         password: "password",
         name: "Luna",
-        species: "Maine Coon",
+        species: "Cat",
         age: 3,
-        bio: "Majestic Maine Coon who loves being admired and petted.",
+        bio: "Majestic cat who loves being admired and petted. I'm quite chatty and will have long conversations with you about my day.",
         avatar: "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-        speciesPreferences: ["Persian Cat", "Maine Coon", "Ragdoll"]
+        speciesPreferences: ["Cat", "Dog", "Fish"]
+      },
+      {
+        username: "pepper",
+        password: "password",
+        name: "Pepper",
+        species: "Mouse",
+        age: 1,
+        bio: "Tiny but brave mouse who loves cheese and adventure. I'm quick, clever, and always looking for new friends of all sizes!",
+        avatar: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        speciesPreferences: ["Mouse", "Horse", "Dog", "Rabbit", "Cat"]
+      },
+      {
+        username: "thunder",
+        password: "password",
+        name: "Thunder",
+        species: "Horse",
+        age: 5,
+        bio: "Majestic horse who loves galloping through open fields. I enjoy the occasional sugar cube and making friends with all types of animals.",
+        avatar: "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+        speciesPreferences: ["Horse", "Dog", "Cat", "Mouse"]
       }
     ];
     
@@ -126,7 +146,32 @@ export class MemStorage implements IStorage {
   async createUser(insertUser: InsertUser): Promise<User> {
     const id = this.userIdCounter++;
     const createdAt = new Date();
-    const user: User = { ...insertUser, id, createdAt };
+    
+    // Extract properties and handle bio correctly
+    const {
+      username,
+      password,
+      name,
+      species,
+      age,
+      avatar,
+      speciesPreferences,
+      bio = null, // Default to null if undefined
+    } = insertUser;
+    
+    const user: User = {
+      id,
+      username,
+      password,
+      name,
+      species,
+      age,
+      bio,
+      avatar,
+      speciesPreferences,
+      createdAt
+    };
+    
     this.users.set(id, user);
     return user;
   }

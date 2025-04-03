@@ -122,7 +122,7 @@ export default function Home() {
       <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
         <Card className="w-full max-w-md">
           <CardContent className="pt-6">
-            <h1 className="text-3xl font-bold text-primary text-center mb-6">PawSwipe</h1>
+            <h1 className="text-3xl font-bold text-primary text-center mb-6">Menagerie</h1>
             <p className="text-center mb-6 text-gray-600">Find your perfect animal match!</p>
             
             <Form {...form}>
