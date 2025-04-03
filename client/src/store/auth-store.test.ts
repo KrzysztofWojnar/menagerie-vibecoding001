@@ -1,75 +1,61 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { useAuthStore } from './auth-store';
-import { Animal } from '../types/animal';
 
-// Reset the store before each test
-beforeEach(() => {
-  useAuthStore.setState({
-    user: null,
-    isAuthenticated: false,
-    setUser: (user) => useAuthStore.setState({ user, isAuthenticated: true }),
-    clearUser: () => useAuthStore.setState({ user: null, isAuthenticated: false }),
-  });
-});
-
-describe('AuthStore', () => {
-  it('should initialize with null user and isAuthenticated as false', () => {
-    const { user, isAuthenticated } = useAuthStore.getState();
-    
-    expect(user).toBeNull();
-    expect(isAuthenticated).toBe(false);
+describe('Auth Store', () => {
+  beforeEach(() => {
+    // Reset the store before each test
+    const store = useAuthStore.getState();
+    store.clearUser();
   });
   
-  it('should set the user and update isAuthenticated to true', () => {
-    const mockUser: Animal = {
+  it('initializes with isAuthenticated as false', () => {
+    const store = useAuthStore.getState();
+    expect(store.isAuthenticated).toBe(false);
+    expect(store.user).toBe(null);
+  });
+  
+  it('sets user and updates isAuthenticated', () => {
+    const store = useAuthStore.getState();
+    const mockUser = {
       id: 1,
       username: 'testuser',
       name: 'Test User',
       species: 'Dog',
       age: 3,
-      avatar: 'https://placekitten.com/200/200',
-      speciesPreferences: ['Cat'],
+      bio: 'This is a test bio',
+      avatar: '/images/avatar1.png',
+      speciesPreferences: ['Cat', 'Bird'],
       createdAt: new Date()
     };
     
-    // Call the setUser action
-    useAuthStore.getState().setUser(mockUser);
+    store.setUser(mockUser);
     
-    // Get the updated state
-    const { user, isAuthenticated } = useAuthStore.getState();
-    
-    // Verify state was updated correctly
-    expect(user).toEqual(mockUser);
-    expect(isAuthenticated).toBe(true);
+    expect(store.user).toEqual(mockUser);
+    expect(store.isAuthenticated).toBe(true);
   });
   
-  it('should clear the user and update isAuthenticated to false', () => {
-    // First set a user
-    const mockUser: Animal = {
+  it('clears user and updates isAuthenticated', () => {
+    const store = useAuthStore.getState();
+    const mockUser = {
       id: 1,
       username: 'testuser',
       name: 'Test User',
       species: 'Dog',
       age: 3,
-      avatar: 'https://placekitten.com/200/200',
-      speciesPreferences: ['Cat'],
+      bio: 'This is a test bio',
+      avatar: '/images/avatar1.png',
+      speciesPreferences: ['Cat', 'Bird'],
       createdAt: new Date()
     };
     
-    useAuthStore.getState().setUser(mockUser);
+    // First set the user
+    store.setUser(mockUser);
+    expect(store.isAuthenticated).toBe(true);
     
-    // Verify user was set
-    expect(useAuthStore.getState().user).toEqual(mockUser);
-    expect(useAuthStore.getState().isAuthenticated).toBe(true);
+    // Then clear the user
+    store.clearUser();
     
-    // Call the clearUser action
-    useAuthStore.getState().clearUser();
-    
-    // Get the updated state
-    const { user, isAuthenticated } = useAuthStore.getState();
-    
-    // Verify state was updated correctly
-    expect(user).toBeNull();
-    expect(isAuthenticated).toBe(false);
+    expect(store.user).toBe(null);
+    expect(store.isAuthenticated).toBe(false);
   });
 });

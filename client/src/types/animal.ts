@@ -10,6 +10,7 @@ export interface Animal {
   createdAt: Date;
 }
 
+// Like represents a user liking another user
 export interface Like {
   id: number;
   likerId: number;
@@ -17,6 +18,7 @@ export interface Like {
   createdAt: Date;
 }
 
+// Match represents a mutual like between two users
 export interface Match {
   id: number;
   user1Id: number;
@@ -25,6 +27,7 @@ export interface Match {
   matchedUser: Animal;
 }
 
+// LikeResponse is returned when a user likes another user
 export interface LikeResponse {
   like: Like;
   isMatch: boolean;

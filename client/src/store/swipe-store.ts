@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Animal } from "@/types/animal";
+import { Animal } from '../types/animal';
 
 interface SwipeState {
   potentialMatches: Animal[];
@@ -9,8 +9,8 @@ interface SwipeState {
 
 export const useSwipeStore = create<SwipeState>((set) => ({
   potentialMatches: [],
-  setPotentialMatches: (animals) => set({ potentialMatches: animals }),
-  removeAnimal: (id) => set((state) => ({
+  setPotentialMatches: (animals: Animal[]) => set({ potentialMatches: animals }),
+  removeAnimal: (id: number) => set((state) => ({
     potentialMatches: state.potentialMatches.filter(animal => animal.id !== id)
-  })),
+  }))
 }));
