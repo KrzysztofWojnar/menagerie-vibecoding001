@@ -39,7 +39,7 @@ export default function Matches() {
   }
 
   return (
-    <div className="max-w-md mx-auto min-h-screen flex flex-col bg-background relative overflow-hidden px-4">
+    <div className="max-w-md mx-auto min-h-screen flex flex-col bg-background relative overflow-hidden">
       <div className="bg-white py-3 px-4 -mx-4 flex justify-between items-center shadow-sm">
         <button 
           className="text-dark p-2" 
