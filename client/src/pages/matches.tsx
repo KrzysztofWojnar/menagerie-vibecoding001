@@ -51,7 +51,8 @@ export default function Matches() {
         <div className="w-10"></div>
       </div>
       
-      <ScrollArea className="flex-1 p-4">
+      <ScrollArea className="flex-1">
+        <div className="p-4">
         {/* New Matches Section */}
         <h3 className="text-dark text-lg font-semibold mb-3">New Matches</h3>
         {isLoading ? (
@@ -129,6 +130,7 @@ export default function Matches() {
             <p className="text-gray-500">No matches yet. Keep swiping!</p>
           </div>
         )}
+        </div>
       </ScrollArea>
       
       <NavigationBar activePath={location} />
