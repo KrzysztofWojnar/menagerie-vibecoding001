@@ -10,9 +10,14 @@ export default function Messages() {
   });
   
   return (
-    <div className="flex flex-col h-screen bg-gray-50">
-      <div className="flex-1 overflow-auto px-4 py-6">
-        <h1 className="text-2xl font-bold mb-6 text-center">Messages</h1>
+    <div className="max-w-md mx-auto min-h-screen flex flex-col bg-background relative overflow-hidden px-4">
+      <div className="bg-white py-3 px-4 -mx-4 flex justify-between items-center shadow-sm">
+        <div className="w-10"></div>
+        <h2 className="font-bold text-lg">Messages</h2>
+        <div className="w-10"></div>
+      </div>
+      
+      <div className="flex-1 overflow-auto py-6">
         
         {isLoading ? (
           <div className="flex justify-center items-center h-40">
