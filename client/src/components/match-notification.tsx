@@ -1,6 +1,6 @@
-import { Animal } from "@/types/animal";
-import { Button } from "@/components/ui/button";
-import { useAuthStore } from "@/store/auth-store";
+import { Animal } from "../types/animal";
+import { Button } from "./ui/button";
+import { useAuthStore } from "../store/auth-store";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface MatchNotificationProps {

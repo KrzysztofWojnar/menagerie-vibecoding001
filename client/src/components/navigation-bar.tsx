@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
-import { Match } from "@/types/animal";
+import { Match } from "../types/animal";
 import { useQuery } from "@tanstack/react-query";
 
 interface NavigationBarProps {
@@ -63,14 +63,14 @@ export default function NavigationBar({ activePath }: NavigationBarProps) {
         onClick={() => setLocation("/profile")}
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-          <circle cx="12" cy="12" r="8"/>
-          <path d="M8 9c.8-.7 1.5-1 2.5-1s1.7.3 2.5 1"/>
-          <path d="m13 14 2 2"/>
-          <path d="m11 14-2 2"/>
-          <path d="M15 13h.01"/>
-          <path d="M9 13h.01"/>
-          <path d="M9 7 8 6"/>
-          <path d="m15 7 1-1"/>
+          {/* Fox Head Icon */}
+          <path d="M7 9.5l-3.5-3c-.83-.83-.83-2.17 0-3 .62-.62 1.57-.77 2.35-.37C6.76 3.5 7.93 4 9 4h6c1.07 0 2.24-.5 3.15-.87.78-.4 1.73-.25 2.35.37.83.83.83 2.17 0 3L17 9.5" />
+          <path d="M11 6v4c0 1.1.9 2 2 2s2-.9 2-2V6" />
+          <path d="M7 6v4c0 1.1.9 2 2 2s2-.9 2-2V6" />
+          <path d="M9 12.5v2.33c0 .59-.27 1.12-.7 1.47l-1.8 1.5C5.67 18.5 5 19.62 5 20.8V21h14v-.2c0-1.18-.67-2.3-1.5-3l-1.8-1.5c-.43-.35-.7-.88-.7-1.47V12.5" />
+          <path d="M16 2l-1 2m-7-2l1 2" />
+          <circle cx="9" cy="9" r="1" />
+          <circle cx="15" cy="9" r="1" />
         </svg>
       </button>
     </div>

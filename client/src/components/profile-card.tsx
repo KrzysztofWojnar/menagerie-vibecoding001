@@ -1,6 +1,6 @@
 import { motion, PanInfo, useAnimation } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Animal } from "@/types/animal";
+import { Card, CardContent } from "./ui/card";
+import { Animal } from "../types/animal";
 import { useState } from "react";
 
 interface ProfileCardProps {
@@ -51,6 +51,7 @@ export default function ProfileCard({ animal, isActive, onSwipeLeft, onSwipeRigh
 
   return (
     <motion.div
+      data-testid="profile-card"
       className="absolute w-full"
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
@@ -84,6 +85,18 @@ export default function ProfileCard({ animal, isActive, onSwipeLeft, onSwipeRigh
               <span className="text-primary font-bold text-2xl">NOPE</span>
             </div>
           )}
+          
+          {/* Hidden buttons for testing purposes */}
+          <button 
+            className="hidden" 
+            aria-label="like" 
+            onClick={() => onSwipeRight(animal)} 
+          />
+          <button 
+            className="hidden" 
+            aria-label="dislike" 
+            onClick={onSwipeLeft} 
+          />
         </div>
         
         <CardContent className="p-5">
