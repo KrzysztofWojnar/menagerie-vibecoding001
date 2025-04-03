@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
@@ -8,11 +8,13 @@ import { apiRequest } from "@/lib/queryClient";
 import { Button } from "@/components/ui/button";
 import { Animal } from "@/types/animal";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import NotImplementedModal from "../components/not-implemented-modal";
 
 export default function Profile() {
   const [location, setLocation] = useLocation();
   const { isAuthenticated, user, clearUser } = useAuthStore();
   const { toast } = useToast();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -72,9 +74,6 @@ export default function Profile() {
                 alt={`${user.name}'s profile`} 
                 className="w-28 h-28 rounded-full object-cover border-4 border-white shadow-md"
               />
-              <button className="absolute bottom-0 right-0 bg-primary text-white rounded-full p-2 shadow-md">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
-              </button>
             </div>
             <h1 className="text-2xl font-bold">{user.name}</h1>
             <p className="text-gray-600">{user.species}, {user.age}</p>
@@ -108,6 +107,12 @@ export default function Profile() {
       </ScrollArea>
       
       <NavigationBar activePath={location} />
+      
+      {/* Modal for unimplemented features */}
+      <NotImplementedModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }
