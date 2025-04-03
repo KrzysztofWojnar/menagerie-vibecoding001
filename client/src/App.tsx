@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Matches from "@/pages/matches";
+import Messages from "@/pages/messages";
 import Profile from "@/pages/profile";
 import { useEffect } from "react";
 import { useAuthStore } from "./store/auth-store";
@@ -52,6 +53,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/home" component={Home} />
       <Route path="/matches" component={Matches} />
+      <Route path="/messages" component={Messages} />
       <Route path="/profile" component={Profile} />
       <Route component={NotFound} />
     </Switch>
