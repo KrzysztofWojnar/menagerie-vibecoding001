@@ -62,16 +62,12 @@ export default function NavigationBar({ activePath }: NavigationBarProps) {
         className={`p-2 ${activePath === "/profile" ? "text-primary" : "text-gray-400 hover:text-primary"}`}
         onClick={() => setLocation("/profile")}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-          {/* Fox Head Icon */}
-          <path d="M7 9.5l-3.5-3c-.83-.83-.83-2.17 0-3 .62-.62 1.57-.77 2.35-.37C6.76 3.5 7.93 4 9 4h6c1.07 0 2.24-.5 3.15-.87.78-.4 1.73-.25 2.35.37.83.83.83 2.17 0 3L17 9.5" />
-          <path d="M11 6v4c0 1.1.9 2 2 2s2-.9 2-2V6" />
-          <path d="M7 6v4c0 1.1.9 2 2 2s2-.9 2-2V6" />
-          <path d="M9 12.5v2.33c0 .59-.27 1.12-.7 1.47l-1.8 1.5C5.67 18.5 5 19.62 5 20.8V21h14v-.2c0-1.18-.67-2.3-1.5-3l-1.8-1.5c-.43-.35-.7-.88-.7-1.47V12.5" />
-          <path d="M16 2l-1 2m-7-2l1 2" />
-          <circle cx="9" cy="9" r="1" />
-          <circle cx="15" cy="9" r="1" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 -960 960 960" fill="currentColor" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+          <path d="m334-80-74-30 58-141q-106-28-172-114T80-560v-160q0-66 47-113t113-47q22 0 42 7.5t40 15.5l238 97-160 60v60l440 280 40 200h-80l-40-80H560v160h-80v-160h-80L334-80Zm66-240h353l-63-40H400q-66 0-113-47t-47-113h80q0 33 23.5 56.5T400-440h165L320-596v-124q0-33-23.5-56.5T240-800q-33 0-56.5 23.5T160-720v160q0 100 70 170t170 70ZM240-680q-17 0-28.5-11.5T200-720q0-17 11.5-28.5T240-760q17 0 28.5 11.5T280-720q0 17-11.5 28.5T240-680Zm160 320Z"/>
         </svg>
+
+
+
       </button>
     </div>
   );
