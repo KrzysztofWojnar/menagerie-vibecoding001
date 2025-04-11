@@ -52,7 +52,7 @@ export default function ProfileCard({ animal, isActive, onSwipeLeft, onSwipeRigh
   return (
     <motion.div
       data-testid="profile-card"
-      className="absolute w-full"
+      className="w-full"
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
       onDragEnd={handleDragEnd}
