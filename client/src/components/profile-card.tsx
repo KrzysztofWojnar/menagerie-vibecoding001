@@ -123,7 +123,7 @@ export default function ProfileCard({ animal, isActive, onSwipeLeft, onSwipeRigh
           
           <div>
             <p className="text-sm font-medium text-dark mb-1">Interested in:</p>
-            <div className="flex flex-wrap gap-1">
+            <div data-testid="interested-in" className="flex flex-wrap gap-1">
               {animal.speciesPreferences.map((species, index) => (
                 <span key={index} className="bg-gray-100 px-2 py-1 rounded-full text-xs">
                   {species}

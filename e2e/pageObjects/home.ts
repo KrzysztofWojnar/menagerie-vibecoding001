@@ -9,6 +9,8 @@ export class HomePage extends BasePage {
     readonly acceptButton = this.page.getByRole('button', { name: 'Accept', exact: true });
     readonly rejectButton = this.page.getByRole('button', { name: 'Reject', exact: true });
     readonly yay = this.suggestion.getByText('YAY!', { exact: true });
+    readonly noMoreProfiles = this.page.getByText('No more profiles!', { exact: true });
+    readonly interestedInSpecies = this.page.getByTestId('interested-in');
     constructor(page: Page, navigationPage: NavigationPage) {
         super(page);
         this.navigation = navigationPage;
@@ -24,9 +26,12 @@ export class HomePage extends BasePage {
                 bb.x - 100;
         await this.page.locator('body').hover({ 
             position: {
-                x: target,
-                y: bb.y + bb.height / 2
+                x: bb.y + bb.height / 2,
+                y: target
             }
         });
+    }
+    async getInterestedInSpecies() {
+        return await this.interestedInSpecies.locator('span').allInnerTexts();
     }
 }

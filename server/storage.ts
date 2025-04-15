@@ -114,7 +114,7 @@ export class MemStorage implements IStorage {
         age: 1,
         bio: "Tiny but brave mouse who loves cheese and adventure. I'm quick, clever, and always looking for new friends of all sizes!",
         avatar: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-        speciesPreferences: ["Mouse", "Horse", "Dog", "Rabbit", "Cat"]
+        speciesPreferences: ["Mouse", "Horse", "Dog", "Rabbit"]
       },
       {
         username: "thunder",
