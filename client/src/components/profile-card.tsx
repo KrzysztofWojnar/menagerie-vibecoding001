@@ -67,7 +67,7 @@ export default function ProfileCard({ animal, isActive, onSwipeLeft, onSwipeRigh
       style={{ zIndex: 10 }}
     >
       <Card className="rounded-2xl shadow-lg overflow-hidden">
-        <div className="relative h-[60vh]">
+        <div className="relative h-[45vh]">
           <img
             src={animal.avatar}
             alt={animal.name}
@@ -105,7 +105,7 @@ export default function ProfileCard({ animal, isActive, onSwipeLeft, onSwipeRigh
               <span>{animal.name}</span>
               <span className="text-lg ml-2">{animal.age}</span>
             </h2>
-            <span className="bg-secondary text-white px-2 py-1 rounded-full text-xs font-semibold">
+            <span className="bg-secondary text-black px-2 py-1 rounded-full text-xs font-semibold">
               <span>{Math.floor(Math.random() * 10) + 1} miles away</span>
             </span>
           </div>
@@ -115,7 +115,7 @@ export default function ProfileCard({ animal, isActive, onSwipeLeft, onSwipeRigh
             <span>{animal.species}</span>
           </p>
           
-          <div className="bg-gray-50 p-3 rounded-md mb-3">
+          <div className="bg-gray-50 p-3 rounded-md mb-3" aria-label="About me">
             <p className="text-sm text-gray-700 leading-relaxed">
               {animal.bio || `I'm a ${animal.species} looking for friends!`}
             </p>

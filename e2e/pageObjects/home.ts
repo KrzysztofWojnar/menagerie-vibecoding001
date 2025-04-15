@@ -5,8 +5,28 @@ import type { NavigationPage } from "./navigation";
 export class HomePage extends BasePage {
     readonly navigation: NavigationPage;
     readonly suggestion = this.page.getByTestId('profile-card');
+    readonly aboutMe = this.suggestion.getByLabel('About me');
+    readonly acceptButton = this.page.getByRole('button', { name: 'Accept', exact: true });
+    readonly rejectButton = this.page.getByRole('button', { name: 'Reject', exact: true });
+    readonly yay = this.suggestion.getByText('YAY!', { exact: true });
     constructor(page: Page, navigationPage: NavigationPage) {
         super(page);
         this.navigation = navigationPage;
+    }
+    async moveCursor(direction: 'right' | 'left') {
+        const bb = await this.suggestion.boundingBox();
+        if (!bb) {
+            throw new Error('Suggestion tile not found');
+        }
+        const target =
+            direction === 'right' ?
+                bb?.width + bb.x + 100 :
+                bb.x - 100;
+        await this.page.locator('body').hover({ 
+            position: {
+                x: target,
+                y: bb.y + bb.height / 2
+            }
+        });
     }
 }

@@ -164,7 +164,7 @@ export default function Home() {
                 </Button>
               </form>
             </Form>
-            
+
             <div className="mt-4 text-sm text-center text-gray-500">
               <p>Use one of the demo accounts:</p>
               <p className="mt-1">username: fluffy, password: password</p>
@@ -179,7 +179,7 @@ export default function Home() {
   return (
     <div className="max-w-md mx-auto min-h-screen flex flex-col bg-background relative overflow-hidden">
       <StatusBar />
-      
+
       <div className="flex-1 p-4 overflow-hidden relative">
         <div className="relative h-full flex items-center justify-center">
           <AnimatePresence>
@@ -209,29 +209,31 @@ export default function Home() {
         </div>
         
         <div className="flex justify-center items-center space-x-4 mt-4 mb-2">
-          <Button 
-            variant="outline" 
-            size="icon" 
+          <Button
+            variant="outline"
+            size="icon"
             className="rounded-full h-14 w-14"
+            aria-label="Reject"
             onClick={swipeLeft}
             disabled={!potentialMatches || potentialMatches.length === 0}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-rose-500 w-6 h-6"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           </Button>
           
-          <Button 
-            variant="outline" 
-            size="icon" 
+          <Button
+            variant="outline"
+            size="icon"
             className="rounded-full h-12 w-12"
             disabled={!potentialMatches || potentialMatches.length === 0}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-400 w-5 h-5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
           </Button>
           
-          <Button 
-            variant="outline" 
-            size="icon" 
+          <Button
+            variant="outline"
+            size="icon"
             className="rounded-full h-14 w-14"
+            aria-label="Accept"
             onClick={() => {
               if (potentialMatches && potentialMatches.length > 0) {
                 swipeRight(potentialMatches[currentIndex]);

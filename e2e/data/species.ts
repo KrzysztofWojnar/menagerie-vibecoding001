@@ -1,10 +1,10 @@
 export const Species = [
-    'horse',
-    'dog',
-    'cat',
-    'hamster',
-    'bird',
-    'rabbit',
-    'mouse',
-    'fish'
+    'Horse',
+    'Dog',
+    'Cat',
+    'Hamster',
+    'Bird',
+    'Rabbit',
+    'Mouse',
+    'Fish'
 ] as const;

@@ -1,6 +1,6 @@
 import { Page } from "@playwright/test";
 
-export class BasePage {
+export abstract class BasePage {
     constructor(readonly page: Page){}
     async goto() {
         await this.page.goto('/');
