@@ -8,6 +8,8 @@ import { Strategy as LocalStrategy } from "passport-local";
 import { loginSchema, insertLikeSchema } from "@shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
+import fs from 'fs';
+import path from "path";
 
 const MemoryStore = memorystore(session);
 
@@ -198,7 +200,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
       next(error);
     }
   });
-
+  app.get("/api/photos/enter", async (req: Request, res: Response, next) => {
+    const filePath = path.resolve('./server/assets/enter.jpg');
+    res.sendFile(filePath);
+  });
+  //   try {
+  //     fs.exists('./server/assets/enter.jpg', (exists) => {
+  //       if (!exists) {
+          
+  //         res.statusCode = 200;
+  //         res.setHeader("Content-Type", "image/jpg");
+  //         // fs.createReadStream(filePath).pipe(res);
+  //         res.sendFile('./assets/enter.jpg')
+  //         return;
+  //       }
+  //     });
+  //   } catch (error) {
+  //     next(error);
+  //   }
+  // });
   const httpServer = createServer(app);
   return httpServer;
 }

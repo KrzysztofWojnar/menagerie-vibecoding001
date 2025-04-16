@@ -47,6 +47,16 @@ export class MemStorage implements IStorage {
   private initializeAnimals() {
     const animals: InsertUser[] = [
       {
+        username: "enter",
+        password: "password",
+        name: "Enter",
+        species: "Dog",
+        age: 3,
+        bio: "I just want to eat your homework!",
+        avatar: "http://localhost:5000/api/photos/enter",
+        speciesPreferences: ["Cat", "Bird", "Rabbit"]
+      },
+      {
         username: "fluffy",
         password: "password",
         name: "Fluffy",
@@ -62,7 +72,7 @@ export class MemStorage implements IStorage {
         name: "Max",
         species: "Dog",
         age: 3,
-        bio: "Energetic Golden Retriever who loves playing fetch and swimming. I'm always happy to eat your homework!",
+        bio: "Energetic Golden Retriever who loves playing fetch and swimming.",
         avatar: "https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
         speciesPreferences: ["Dog", "Cat", "Horse"]
       },
